@@ -1,0 +1,56 @@
+<script>
+let opcao;
+let arranjo = [];
+
+function menu() {
+    return prompt("Escolha uma opcao:\n1) Adicionar um item.\n2) Exibir todos os itens.\n3) Atualizar um item.\n4) Remover o segundo item.\n5) Sair.");
+}
+
+function adicionarItem(arranjo) {
+    let item = prompt("Digite um item: ");
+    arranjo.push(item);
+}
+
+function exibirItens(arranjo) {
+    console.log("Itens do arranjo:");
+    arranjo.forEach(item => console.log("-" + item));
+}
+
+function atualizarItem(arranjo) {
+    let indice = Number(prompt("Digite o número do item: "));
+    if (indice > 0 && indice <= arranjo.length) {
+        indice = indice - 1;
+        let novovalor = prompt("Digite um novo valor: ");
+        arranjo[indice] = novovalor;
+    }
+}
+
+function removerItem(arranjo){
+    let opcaoRemover = Number(prompt("Escolha a sua opção:\n1) Remover o primeiro item\n2) Remover o segundo item."));
+    if (opcaoRemover == 2){
+        arranjo.pop();
+    } else if (opcaoRemover == 1) {
+        arranjo.shift(); 
+    } else {
+        alert("Opção inválida!");
+    }
+}
+
+do {
+    opcao = menu();
+
+    if (opcao == 1) {          
+        adicionarItem(arranjo);
+    } else if (opcao == 2) {    
+        exibirItens(arranjo);
+    } else if (opcao == 3) {
+        atualizarItem(arranjo);
+    } else if (opcao == 4) {
+        removerItem(arranjo);
+    } else if (opcao != 5) {
+        alert("Opção Inválida!");
+    }
+
+} while (opcao != 5);
+</script>
+
